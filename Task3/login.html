@@ -1,0 +1,18 @@
+<h2><b><i><u>Login</u></i></b></h2>
+
+<h6>Enter Username=<input type="text" id="username" placeholder="Username"></h6>
+<h6>Enter Password=<input type="password" id="password" placeholder="Password"></h6>
+<button onclick="login()" style="background-color: #657ada; color: white; padding: 10px 20px; border: none; cursor: pointer;">Login</button>
+</div>
+
+<script>
+function login(){
+    let stored = JSON.parse(localStorage.getItem("user"));
+    if(username.value == stored.username && password.value == stored.password){
+        alert("Login Successful!");
+        window.location.href="index.html";
+    } else {
+        alert("Invalid Credentials");
+    }
+}
+</script>

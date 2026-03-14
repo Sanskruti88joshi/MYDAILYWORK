@@ -1,0 +1,32 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #efcaca;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+}
+
+.buttons a {
+    display: block;
+    margin: 15px auto;
+    padding: 12px;
+    width: 200px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.buttons a:hover {
+    background: #0056b3;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .buttons a {
+        width: 90%;
+    }
+}

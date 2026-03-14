@@ -1,0 +1,15 @@
+<h2><b><i><u>Register</u></i></b></h2>
+<h6>Enter Username=<input type="text" id="username" placeholder="Username"></h6>
+<h6>Enter Password=<input type="password" id="password" placeholder="Password"></h6>
+<button onclick="register()" style="background-color: #657ada; color: white; padding: 10px 20px; border: none; cursor: pointer;">Register</button>
+
+<script>
+function register(){
+    let user = {
+        username: username.value,
+        password: password.value
+    };
+    localStorage.setItem("user", JSON.stringify(user));
+    alert("Registered Successfully!");
+}
+</script>

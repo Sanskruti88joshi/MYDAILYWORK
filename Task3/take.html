@@ -1,0 +1,41 @@
+<h2>Take Quiz</h2>
+<div id="quizBox"></div>
+<button onclick="nextQuestion()">Next</button>
+
+<script>
+let quiz = JSON.parse(localStorage.getItem("quiz")) || [];
+let index = 0;
+let score = 0;
+
+function loadQuestion() {
+    if(index >= quiz.length){
+        localStorage.setItem("score", score);
+        window.location.href = "result.html";
+        return;
+    }
+
+    let q = quiz[index];
+    let html = `<h3>${q.question}</h3>`;
+
+    q.options.forEach((opt,i)=>{
+        html += `<input type="radio" name="answer" value="${i}"> ${opt}<br>`;
+    });
+
+    quizBox.innerHTML = html;
+}
+
+function nextQuestion(){
+    let selected = document.querySelector('input[name="answer"]:checked');
+    if(selected){
+        if(selected.value == quiz[index].correct){
+            score++;
+        }
+        index++;
+        loadQuestion();
+    } else {
+        alert("Select an answer");
+    }
+}
+
+loadQuestion();
+</script>

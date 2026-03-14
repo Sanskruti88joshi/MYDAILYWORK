@@ -1,0 +1,36 @@
+<h2>Create Quiz</h2>
+
+<input type="text" id="question" placeholder="Enter Question"><br><br>
+
+<input type="text" id="opt1" placeholder="Option 1"><br><br>
+<input type="text" id="opt2" placeholder="Option 2"><br><br>
+<input type="text" id="opt3" placeholder="Option 3"><br><br>
+<input type="text" id="opt4" placeholder="Option 4"><br><br>
+
+<select id="correct">
+    <option value="0">Option 1</option>
+    <option value="1">Option 2</option>
+    <option value="2">Option 3</option>
+    <option value="3">Option 4</option>
+</select><br><br>
+
+<button onclick="saveQuiz()">Save Question</button>
+
+<script>
+let quiz = JSON.parse(localStorage.getItem("quiz")) || [];
+
+function saveQuiz() {
+    let question = document.getElementById("question").value;
+    let options = [
+        opt1.value,
+        opt2.value,
+        opt3.value,
+        opt4.value
+    ];
+    let correct = document.getElementById("correct").value;
+
+    quiz.push({ question, options, correct });
+    localStorage.setItem("quiz", JSON.stringify(quiz));
+    alert("Question Saved!");
+}
+</script>
